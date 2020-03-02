@@ -5,33 +5,29 @@ use PHPUnit\Framework\TestCase;
 class ListingPremiumTest extends TestCase{
     
     /** @test */
-     public function DataMustBeSet()
-     {
-         $this->expectException(Exception::class);
-         $listing = new ListingPremium();
-     } 
-    /** @test */
-     public function checkGetStatus()
+    function testGetStatus()
     { 
-        $listing = new ListingPremium();
-        $this->assertEquals('premium', $this->$list->getStatus());
-    
-    }
-    /*
-    
-    public function checkGtetStatus()
-    {
-        $list = new ListingPremium($data = [
-            'id'=>2,
-            'title'=>'hey',
-            'website'=>'http://www.freepremium.com',
-            'email'=>'preme@preme.com',
-            'twitter'=>'@premium',
-            'status'=>''
-        ]);
+        $data = [
+            'id' => 1,
+            'title' => 'Premium Subscription',
+            'status' => 'premium'
+        ];
+ 
         
-        $this->assertEquals('premium', $list->getStatus());
-        
+        $ListingPremium = new ListingPremium($data);
+        $this->assertEquals('premium', $ListingPremium->getStatus());
     }
-    */
+  /** @test */
+  function testGetDescription()
+  { 
+      $data = [
+          'id' => 1,
+          'title' => 'Premium Subscription',
+          'description' => 'description'
+      ];
+
+      
+      $ListingPremium = new ListingPremium($data);
+      $this->assertEquals('description', $ListingPremium->getDescription());
+  }
 }
